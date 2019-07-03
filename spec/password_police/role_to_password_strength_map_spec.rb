@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'rspec'
-require 'password_police/role_to_password_strength_map.rb'
+require 'spec_helper'
 
 RSpec.describe PasswordPolice::RoleToPasswordStrengthMap do
   describe '#initialize' do
