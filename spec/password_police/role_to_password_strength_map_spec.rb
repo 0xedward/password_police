@@ -24,11 +24,21 @@ RSpec.describe PasswordPolice::RoleToPasswordStrengthMap do
       end
     end
 
+    context 'role in role_map contains password strength that is NaN' do
+      let(:role_map) { { admin: 'a' } }
+
+      it 'raises an error' do
+        expect { create_role_map_class }.to raise_error("password strength 'a' is NaN")
+      end
+    end
+
     context 'role_map contains correct setup' do
-      let(:role_map) { { admin: 4, averagejoe: 0 } }
+      let(:role_map) { { admin: 4, averagejoe: '0' } }
 
       it 'creates a role_to_password_strength_map instance' do
-        expect(create_role_map_class.role_map).to eq(role_map)
+        role_map = create_role_map_class.role_map
+        expect(role_map['admin']).to eq(4)
+        expect(role_map['averagejoe']).to eq(0)
       end
     end
 

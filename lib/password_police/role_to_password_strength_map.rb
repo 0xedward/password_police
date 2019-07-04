@@ -52,7 +52,13 @@ module PasswordPolice
     end
 
     def strength_in_range?(pwd_strength)
-      (0..4).include?(pwd_strength)
+      begin
+        casted_pwd_strength = Integer(pwd_strength)
+      rescue ArgumentError
+        raise "password strength '#{pwd_strength}' is NaN"
+      end
+
+      (0..4).include?(casted_pwd_strength)
     end
 
     def stringify_keys(role_map)

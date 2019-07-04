@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe PasswordPolice::CalculateStrength do
   describe '.check_strength' do
     subject(:strength) { described_class.check_strength(plaintext_pwd) }
