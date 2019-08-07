@@ -20,20 +20,20 @@ RSpec.describe PasswordPolice::RoleToPasswordStrengthMap do
       let(:role_map) { { admin: 5 } }
 
       it 'raises an error' do
-        expect { create_role_map_class }.to raise_error('password strength must be between 0 and 4')
+        expect { create_role_map_class }.to raise_error('Password strength must be between 0 and 4')
       end
     end
 
-    context 'role in role_map contains password strength that is NaN' do
-      let(:role_map) { { admin: 'a' } }
+    context 'role in role_map contains password strength that is not an Integer' do
+      let(:role_map) { { admin: '1' } }
 
       it 'raises an error' do
-        expect { create_role_map_class }.to raise_error("password strength 'a' is NaN")
+        expect { create_role_map_class }.to raise_error('Password strength must be an integer value')
       end
     end
 
     context 'role_map contains correct setup' do
-      let(:role_map) { { admin: 4, averagejoe: '0' } }
+      let(:role_map) { { admin: 4, averagejoe: 0 } }
 
       it 'creates a role_to_password_strength_map instance' do
         role_map = create_role_map_class.role_map
@@ -134,6 +134,4 @@ RSpec.describe PasswordPolice::RoleToPasswordStrengthMap do
       end
     end
   end
-
-  # TODO: fix single or double quotes https://github.com/rubocop-hq/ruby-style-guide#consistent-string-literals
 end

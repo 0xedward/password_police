@@ -6,10 +6,10 @@ module PasswordPolice
 
     def initialize(role_map = {})
       raise 'Role map must contain at least one role to password strength pair' if role_map.nil? || role_map.empty?
-      raise 'password strength must be between 0 and 4' unless role_map_strengths_in_range?(role_map.values)
+      raise 'Password strength must be an integer value' if role_map.values.any? { |value| !value.is_a?(Integer) }
+      raise 'Password strength must be between 0 and 4' unless role_map_strengths_in_range?(role_map.values)
 
       @role_map = stringify_keys(role_map)
-      # TODO: cast strings to integers
     end
 
     def password_strength_fulfilled?(role, user_pwd)
@@ -52,13 +52,7 @@ module PasswordPolice
     end
 
     def strength_in_range?(pwd_strength)
-      begin
-        casted_pwd_strength = Integer(pwd_strength)
-      rescue ArgumentError
-        raise "password strength '#{pwd_strength}' is NaN"
-      end
-
-      (0..4).include?(casted_pwd_strength)
+      (0..4).include?(pwd_strength)
     end
 
     def stringify_keys(role_map)

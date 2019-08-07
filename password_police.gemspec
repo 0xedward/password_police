@@ -7,15 +7,13 @@ require 'password_police/version'
 Gem::Specification.new do |spec|
   spec.name          = 'password_police'
   spec.version       = PasswordPolice::VERSION
-  spec.authors       = ['Edward Qiu']
+  spec.authors       = ['Edward Qiu', 'Julianna Roen']
   spec.email         = ['edwardqiu@users.noreply.github.com']
 
   spec.summary       = 'Write a short summary, because RubyGems requires one.'
   spec.description   = 'Write a longer description or delete this line.'
   spec.homepage      = 'https://github.com/edwardqiu/password_police'
   spec.license       = 'MIT'
-
-  spec.metadata['allowed_push_host'] = "Set to 'http://mygemserver.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/edwardqiu/password_police'
@@ -31,9 +29,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'zxcvbn-ruby'
 end
