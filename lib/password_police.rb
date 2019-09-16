@@ -1,6 +1,5 @@
-require "password_police/version"
+# frozen_string_literal: true
 
-module PasswordPolice
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'password_police/version'
+require 'password_police/calculate_strength'
+require 'password_police/role_to_password_strength_map'
