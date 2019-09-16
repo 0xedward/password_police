@@ -1,6 +1,6 @@
-require 'zxcvbn'
-
 # frozen_string_literal: true
+
+require 'zxcvbn'
 
 module PasswordPolice
   class CalculateStrength
