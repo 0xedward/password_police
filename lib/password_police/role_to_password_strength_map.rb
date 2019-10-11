@@ -14,7 +14,7 @@ module PasswordPolice
 
     def password_strength_fulfilled?(role, user_pwd)
       raise 'Role not found in role_map' if role_map[role].nil?
-
+      # TODO: make doc about only allowing passing in plaintext passwords
       PasswordPolice::CalulateStrength.check_strength(user_pwd) >= role_map[role]
     end
 

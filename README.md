@@ -1,12 +1,12 @@
 # PasswordPolice
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/password_police`. To experiment with that code, run `bin/console` for an interactive prompt.
+The idea behind this gem is that users' passwords must match a password strength respective to the sensitivity of the information on their account or the privileges available to the user. The strength of a password is determined using Dropbox's [zxcvbn](https://github.com/dropbox/zxcvbn). The hope is that this idea would be an decent balance between usability and security.
 
-TODO: Delete this and the text above, and describe your gem
+i.e. Users should be required to register with a "higher" strength password if they are "administrators" compared to the "lower" password strength requirement for a "normal" user.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add the gem to your Gemfile:
 
 ```ruby
 gem 'password_police'
@@ -14,15 +14,18 @@ gem 'password_police'
 
 And then execute:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install password_police
+    $ bundle install
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'password_police'
+
+
+
+```
+on the registration page before accepting a request
+
 
 ## Development
 
@@ -32,7 +35,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/edwardqiu/password_police. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/password_police. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
